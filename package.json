@@ -1,0 +1,21 @@
+{
+  "name": "challenge_react_node",
+  "version": "1.0.0",
+  "main": "index.js",
+  "private": true,
+  "workspaces": [
+    "./*"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:web\"",
+    "dev:backend": "cd backend && npm run dev",
+    "dev:web": "cd frontend && npm run dev"
+  },
+  "keywords": [],
+  "author": "Diego Alejandro Diaz Bonilla",
+  "license": "ISC",
+  "description": "Monorepositorio challenge",
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
