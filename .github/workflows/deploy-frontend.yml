@@ -1,0 +1,26 @@
+name: Deploy Frontend to Vercel
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - "frontend/**" # Solo se ejecuta si hay cambios en el frontend
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v3
+
+      - name: Instalar Vercel CLI
+        run: npm install -g vercel
+
+      - name: Autenticarse en Vercel
+        run: vercel login --token ${{ secrets.VERCEL_TOKEN }}
+
+      - name: Desplegar Frontend
+        run: |
+          cd frontend
+          vercel --prod --token ${{ secrets.VERCEL_TOKEN }}
